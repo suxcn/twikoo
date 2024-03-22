@@ -10,24 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Qwen Server
+      - name: Download Waline Server
         run: |
-          curl -sSL https://github.com/LuhangRui/qw-wechat-vercel/archive/refs/heads/main.zip -o qw-wechat-vercel.zip
-          unzip -o qw-wechat-vercel.zip
-          mv qw-wechat-vercel-main/* .
+          curl -sSL https://codeload.github.com/walinejs/waline/zip/refs/heads/main -o waline.zip
+          unzip -o waline.zip
+          mv waline-main/example/* .
       - name: Commit Changes
         uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'qwen'
+          push-branch: 'master'
           commit-message: "Update Latest Release"
           files: |
-            api
-            package-lock.json
+            index.js
             package.json
+            vercel.json
           rebase: 'true'
           name: GitHub Action
           email: action@github.com

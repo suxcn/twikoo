@@ -2,7 +2,7 @@ name: Update Latest Release
 
 on:
   schedule:
-    - cron: '25,50 * * * *'
+    - cron: '15,45 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
           push-branch: 'master'
           commit-message: "Update Latest Release"
           files: |
-            index.js
+            index.cjs
             package.json
             vercel.json
           rebase: 'true'
